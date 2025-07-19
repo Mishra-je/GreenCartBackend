@@ -11,7 +11,7 @@ import productRouter from './routes/productRoutes.js';
 import cartRouter from './routes/cartRoutes.js';
 import addressRouter from './routes/addressRoute.js';
 import orderRouter from './routes/ordreRoute.js';
-const port = process.env.PORT ||  4000;
+const port = process.env.PORT ||  5000;
 
 await connectDB();
 await connectCloudinary();
@@ -19,7 +19,7 @@ await connectCloudinary();
 // Allow multiple origins 
 const allowedOrigins = ['http://localhost:5173'];
 
-
+ 
 // Middleware Configuration 
 app.use(express.json());
 app.use(cookieParser());
