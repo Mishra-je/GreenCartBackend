@@ -20,7 +20,6 @@ await connectCloudinary();
 // const allowedOrigins = ['http://localhost:5173','https://green-cart-frontend.vercel.app/'];
 
 const allowedOrigins = [
-  'http://localhost:5173',
   'https://gree-cart-frontend.vercel.app/products' // ✅ your actual frontend domain
 ];
 
@@ -31,16 +30,12 @@ const allowedOrigins = [
 app.use(express.json());
 app.use(cookieParser());
 // app.use(cors({origin : allowedOrigins ,credentials:true}))
+
 app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true
+  origin: ['https://gree-cart-frontend.vercel.app/'], // use exact frontend domain
+  credentials: true,
 }));
+
 app.use(express.urlencoded({ extended: true }));
 
 
